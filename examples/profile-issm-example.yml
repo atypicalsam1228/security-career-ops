@@ -1,0 +1,79 @@
+# Career-Ops Profile Configuration
+# Single source of truth for personal data across all modes.
+
+candidate:
+  full_name: "Samuel McQueen"
+  email: "samuel.d.mcqueen1@gmail.com"
+  phone: "301-742-7428"
+  location: "Farmers Branch, TX"
+  linkedin: "linkedin.com/in/samuelmcqueen"
+  # portfolio_url: ""
+  # github: ""
+
+clearance:
+  level: "TS/SCI"
+  status: "Active"
+
+target_roles:
+  primary:
+    - "Information System Security Manager (ISSM)"
+    - "Senior ISSO / GRC Engineer"
+    - "Cloud Security Engineer (AWS)"
+  secondary:
+    - "AI Security / AI Governance Engineer"
+    - "DevSecOps Engineer"
+    - "Security Architect"
+  archetypes:
+    - name: "Cleared GRC / Compliance Engineer"
+      level: "Senior"
+      fit: "primary"
+      sell_when: "JD emphasizes RMF, NIST 800-53, FedRAMP, ISSO/ISSM, ATO, OSCAL, continuous monitoring, eMASS"
+    - name: "Cloud Security Engineer (AWS)"
+      level: "Senior"
+      fit: "primary"
+      sell_when: "JD emphasizes AWS security services, IAM, GovCloud, Security Hub, zero trust, cloud-native security"
+    - name: "AI Security / AI Governance Engineer"
+      level: "Mid-Senior"
+      fit: "primary"
+      sell_when: "JD emphasizes OWASP LLM Top 10, NIST AI RMF, AI red teaming, prompt injection defense, AI governance"
+    - name: "DevSecOps / Compliance Automation"
+      level: "Senior"
+      fit: "secondary"
+      sell_when: "JD emphasizes policy-as-code, STIG automation, CI/CD security, SAST/DAST integration, Terraform"
+    - name: "Security Architect"
+      level: "Senior"
+      fit: "secondary"
+      sell_when: "JD emphasizes threat modeling, secure-by-design, reference architectures, defense-in-depth, zero trust"
+    - name: "FedRAMP Consultant / Assessor"
+      level: "Senior"
+      fit: "adjacent"
+      sell_when: "JD emphasizes 3PAO, FedRAMP authorization, SSP writing, POA&M management, JAB review"
+
+narrative:
+  headline: "TS/SCI-cleared ISSM and Cybersecurity Engineer with 10+ years securing DOD and Federal systems"
+  exit_story: "Military veteran who went from NSA cyber threat intelligence to leading RMF programs across DOD and DOJ. Now focused on automating compliance and securing cloud-native and AI systems."
+  superpowers:
+    - "ATO delivery at scale (39 apps across IL2/4/5, 12+ ATOs secured)"
+    - "RMF/NIST 800-53 deep expertise across DOD and civilian agencies"
+    - "Translating compliance mandates into engineering requirements"
+    - "AWS GovCloud security architecture with Zero Trust"
+    - "Cross-functional leadership bridging executive management and technical teams"
+  proof_points:
+    - name: "Rise8/AFWERX ATO Program"
+      hero_metric: "39 applications authorized across IL2/4/5, 6 ATOs secured for AWS GovCloud"
+    - name: "DOJ/ATF FedRAMP Compliance"
+      hero_metric: "6 ATOs acquired, 30 POA&Ms remediated across 6 systems"
+    - name: "USSOCOM Continuous Monitoring"
+      hero_metric: "175+ systems verified, 20 programs of record audited"
+
+compensation:
+  target_range: "$120K-$180K"
+  currency: "USD"
+  minimum: "$120K"
+  location_flexibility: "Remote preferred, open to occasional on-site"
+
+location:
+  country: "United States"
+  city: "Farmers Branch, TX"
+  timezone: "CST"
+  visa_status: "No sponsorship needed (US Citizen)"

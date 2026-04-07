@@ -1,0 +1,77 @@
+# Career-Ops Profile Configuration — Security/Compliance Professional
+# Copy to career-ops/config/profile.yml and fill in YOUR details.
+
+candidate:
+  full_name: "YOUR NAME"
+  email: "your.email@example.com"
+  phone: "+1-555-0000"
+  location: "City, State"
+  linkedin: "linkedin.com/in/yourname"
+  # portfolio_url: ""
+  # github: ""
+
+clearance:
+  # Options: TS/SCI, Top Secret, Secret, None
+  level: "YOUR CLEARANCE LEVEL"
+  status: "Active"  # Active, Inactive, Expired, Pending
+
+target_roles:
+  primary:
+    - "Information System Security Manager (ISSM)"
+    - "Senior ISSO / GRC Engineer"
+    - "Cloud Security Engineer (AWS)"
+  secondary:
+    - "AI Security / AI Governance Engineer"
+    - "DevSecOps Engineer"
+    - "Security Architect"
+  archetypes:
+    - name: "Cleared GRC / Compliance Engineer"
+      level: "Senior"
+      fit: "primary"
+      sell_when: "JD emphasizes RMF, NIST 800-53, FedRAMP, ISSO/ISSM, ATO, OSCAL, continuous monitoring, eMASS"
+    - name: "Cloud Security Engineer (AWS)"
+      level: "Senior"
+      fit: "primary"
+      sell_when: "JD emphasizes AWS security services, IAM, GovCloud, Security Hub, zero trust, cloud-native security"
+    - name: "AI Security / AI Governance Engineer"
+      level: "Mid-Senior"
+      fit: "primary"
+      sell_when: "JD emphasizes OWASP LLM Top 10, NIST AI RMF, AI red teaming, prompt injection defense, AI governance"
+    - name: "DevSecOps / Compliance Automation"
+      level: "Senior"
+      fit: "secondary"
+      sell_when: "JD emphasizes policy-as-code, STIG automation, CI/CD security, SAST/DAST integration, Terraform"
+    - name: "Security Architect"
+      level: "Senior"
+      fit: "secondary"
+      sell_when: "JD emphasizes threat modeling, secure-by-design, reference architectures, defense-in-depth, zero trust"
+    - name: "FedRAMP Consultant / Assessor"
+      level: "Senior"
+      fit: "adjacent"
+      sell_when: "JD emphasizes 3PAO, FedRAMP authorization, SSP writing, POA&M management, JAB review"
+
+narrative:
+  # YOUR professional headline (1 line)
+  headline: "YOUR HEADLINE HERE"
+  # YOUR exit story — what makes you unique
+  exit_story: "YOUR STORY HERE"
+  # YOUR top 3-5 superpowers
+  superpowers:
+    - "SUPERPOWER 1"
+    - "SUPERPOWER 2"
+    - "SUPERPOWER 3"
+  proof_points:
+    - name: "YOUR KEY PROJECT"
+      hero_metric: "MEASURABLE IMPACT"
+
+compensation:
+  target_range: "$120K-$180K"
+  currency: "USD"
+  minimum: "$100K"
+  location_flexibility: "Remote preferred"
+
+location:
+  country: "United States"
+  city: "YOUR CITY"
+  timezone: "YOUR TIMEZONE"
+  visa_status: "No sponsorship needed"
