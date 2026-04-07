@@ -263,8 +263,60 @@ Cloud Security (4):
 
 ...
 
-Add/remove: just tell me which companies to change.
+Options:
+  • "swap to [preset]" — Load a portal preset (see below)
+  • "add [company]" — Add a company to track
+  • "remove [company]" — Stop tracking a company
+  • "enable/disable [company]" — Toggle without removing
+  • "reset" — Restore default security portals
 ```
+
+### Portal Presets
+
+Portal presets match the archetype presets — each includes title_filter keywords, search queries, and tracked companies tailored to that security specialization.
+
+Read the preset from `templates/presets/portals/{preset}.yml` and apply it to `portals.yml`.
+
+| Preset | Companies | Focus |
+|--------|:---------:|-------|
+| `default` | ~24 | Defense primes, cloud security vendors, 3PAOs, AI safety |
+| `grc` | ~20 | Defense primes, 3PAOs, GRC platforms, federal consulting |
+| `offensive` | ~17 | Offensive security firms, bug bounty platforms, IR consultancies |
+| `cloud` | ~18 | Cloud providers, CNAPP/CSPM vendors, identity, DevSecOps |
+| `ai-security` | ~17 | AI labs, AI security startups, AI governance, defense AI |
+| `soc` | ~17 | SIEM/SOAR vendors, MDR providers, EDR vendors, IR firms |
+| `leadership` | ~21 | Fortune 500 tech, finance, healthcare, SaaS, defense, consulting |
+
+When loading a portal preset:
+1. Read the preset YAML from `templates/presets/portals/{name}.yml`
+2. Show the user: "This will replace your portals with {N} companies focused on {focus}. Replace or merge?"
+3. **Replace**: Overwrite `portals.yml` entirely
+4. **Merge**: Keep existing companies, add new ones, merge title_filter keywords, append search queries (dedup by name)
+5. Write updated `portals.yml`
+
+### Syncing Archetypes + Portals
+
+When a user swaps archetype presets via `/security-career-ops archetypes`, suggest matching portals:
+> "You switched to the offensive archetype pack. Want me to also swap your portals to match? This would replace your tracked companies with pentesting/red team employers."
+
+This keeps archetypes and portals aligned. Users can decline and keep their current portals.
+
+### Adding Companies
+
+When the user says "add [company]":
+
+1. Search for the company's career page URL (WebSearch or Firecrawl)
+2. Detect the ATS platform (Greenhouse, Ashby, Lever, Workday, custom)
+3. Build the YAML entry:
+   ```yaml
+   - name: "Company Name"
+     careers_url: https://detected-url
+     api: https://boards-api.greenhouse.io/v1/boards/slug/jobs  # if Greenhouse
+     notes: "Brief description"
+     enabled: true
+   ```
+4. Append to `tracked_companies` in `portals.yml`
+5. Optionally add a search query targeting this company
 
 ---
 

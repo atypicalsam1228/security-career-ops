@@ -1,0 +1,230 @@
+# Portal Scanner Configuration — Offensive Security / Red Team
+# Preset: offensive
+# Focus: Penetration testing, red teaming, AppSec, vulnerability research
+# Clearance: Optional TS/SCI for government offensive roles
+
+title_filter:
+  positive:
+    # -- Offensive Security --
+    - "Penetration"
+    - "Pentest"
+    - "Red Team"
+    - "Offensive"
+    - "AppSec"
+    - "Application Security"
+    - "Bug Bounty"
+    - "Vulnerability Research"
+    - "Exploit"
+    - "Threat Intelligence"
+    - "Malware"
+    - "Reverse Engineer"
+    - "Security Research"
+    - "CTF"
+    - "Ethical Hacker"
+  negative:
+    - "Junior"
+    - "Intern"
+    - "Entry Level"
+    - ".NET"
+    - "PHP"
+    - "Ruby"
+    - "Blockchain"
+    - "Web3"
+    - "Crypto"
+    - "Marketing"
+    - "Sales"
+    - "SAP"
+    - "Mainframe"
+    - "COBOL"
+  seniority_boost:
+    - "Senior"
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Head"
+    - "Director"
+    - "Manager"
+
+search_queries:
+
+  # -- Greenhouse --
+  - name: Greenhouse — Pentest & Red Team
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Penetration" OR "Pentest" OR "Red Team" OR "Offensive Security"'
+    enabled: true
+
+  - name: Greenhouse — AppSec & Security Research
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Application Security" OR "AppSec" OR "Security Research" OR "Vulnerability"'
+    enabled: true
+
+  # -- Ashby --
+  - name: Ashby — Offensive Security
+    query: 'site:jobs.ashbyhq.com "Penetration" OR "Red Team" OR "Offensive" OR "AppSec" OR "Security Research"'
+    enabled: true
+
+  # -- Lever --
+  - name: Lever — Pentest & Red Team
+    query: 'site:jobs.lever.co "Penetration" OR "Pentest" OR "Red Team" OR "Offensive" OR "AppSec"'
+    enabled: true
+
+  # -- ClearanceJobs --
+  - name: ClearanceJobs — Offensive Cyber
+    query: 'site:clearancejobs.com "Offensive Cyber" OR "Red Team" OR "Penetration" OR "Exploit" "TS/SCI"'
+    enabled: true
+
+  - name: ClearanceJobs — Vulnerability Research
+    query: 'site:clearancejobs.com "Vulnerability Research" OR "Reverse Engineer" OR "Malware Analyst" "TS/SCI"'
+    enabled: true
+
+  # -- General --
+  - name: General — Bug Bounty Roles
+    query: '"Bug Bounty" "engineer" OR "manager" OR "triage" OR "program" remote'
+    enabled: true
+
+  - name: General — Pentest Engineer
+    query: '"Penetration Tester" OR "Pentest Engineer" OR "Offensive Security Engineer" remote'
+    enabled: true
+
+  - name: General — Red Team Lead
+    query: '"Red Team" "lead" OR "manager" OR "senior" OR "principal" remote'
+    enabled: true
+
+  - name: General — Reverse Engineering
+    query: '"Reverse Engineer" OR "Malware Analyst" OR "Exploit Developer" remote'
+    enabled: true
+
+  - name: General — Application Security
+    query: '"Application Security" OR "AppSec" "engineer" OR "architect" OR "lead" remote'
+    enabled: true
+
+  - name: General — Threat Intelligence
+    query: '"Threat Intelligence" "analyst" OR "engineer" OR "lead" remote'
+    enabled: true
+
+tracked_companies:
+
+  # ============================================================
+  # Offensive Security Firms
+  # ============================================================
+
+  - name: Rapid7
+    careers_url: https://job-boards.greenhouse.io/rapid7
+    api: https://boards-api.greenhouse.io/v1/boards/rapid7/jobs
+    notes: "Metasploit, InsightVM, penetration testing services."
+    enabled: true
+
+  - name: HackerOne
+    careers_url: https://job-boards.greenhouse.io/hackerone
+    api: https://boards-api.greenhouse.io/v1/boards/hackerone/jobs
+    notes: "Bug bounty platform leader. Triage, pentest, AppSec roles."
+    enabled: true
+
+  - name: Bugcrowd
+    careers_url: https://job-boards.greenhouse.io/bugcrowd
+    api: https://boards-api.greenhouse.io/v1/boards/bugcrowd/jobs
+    notes: "Bug bounty and vulnerability disclosure platform."
+    enabled: true
+
+  - name: Synack
+    careers_url: https://www.synack.com/careers
+    scan_method: websearch
+    scan_query: 'site:synack.com "Penetration" OR "Red Team" OR "Security" OR "Vulnerability"'
+    notes: "Crowdsourced security testing. Red team and pentest."
+    enabled: true
+
+  - name: Bishop Fox
+    careers_url: https://jobs.lever.co/bishopfox
+    notes: "Offensive security consultancy. Pentest, red team, AppSec."
+    enabled: true
+
+  - name: Cobalt
+    careers_url: https://jobs.ashbyhq.com/cobalt
+    notes: "Pentest-as-a-Service platform. Crowdsourced pentesting."
+    enabled: true
+
+  - name: NetSPI
+    careers_url: https://www.netspi.com/careers
+    scan_method: websearch
+    scan_query: 'site:netspi.com "Penetration" OR "Red Team" OR "AppSec" OR "Security Consultant"'
+    notes: "Penetration testing and attack surface management."
+    enabled: true
+
+  - name: SpecterOps
+    careers_url: https://jobs.lever.co/specterops
+    notes: "Adversary simulation, BloodHound creators. Red team experts."
+    enabled: true
+
+  # ============================================================
+  # Security Consultancies
+  # ============================================================
+
+  - name: NCC Group
+    careers_url: https://www.nccgroup.com/us/careers
+    scan_method: websearch
+    scan_query: 'site:nccgroup.com "Penetration" OR "Red Team" OR "Security Research" OR "AppSec"'
+    notes: "Global security consultancy. Pentest, research, managed services."
+    enabled: true
+
+  - name: Mandiant (Google Cloud)
+    careers_url: https://www.google.com/about/careers
+    scan_method: websearch
+    scan_query: 'site:google.com/about/careers "Mandiant" OR "Threat Intelligence" OR "Incident Response" OR "Red Team"'
+    notes: "Google-acquired IR & threat intel. Red team, malware analysis."
+    enabled: true
+
+  - name: CrowdStrike Services
+    careers_url: https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers
+    scan_method: websearch
+    scan_query: 'site:crowdstrike.wd5.myworkdayjobs.com "Red Team" OR "Penetration" OR "Threat" OR "Incident Response"'
+    notes: "Endpoint security leader. Services team does IR, red team, threat hunting."
+    enabled: true
+
+  # ============================================================
+  # Bug Bounty Platforms
+  # ============================================================
+
+  - name: Intigriti
+    careers_url: https://jobs.lever.co/intigriti
+    notes: "European bug bounty platform. Triage and security roles."
+    enabled: true
+
+  # ============================================================
+  # Government Offensive (via ClearanceJobs)
+  # ============================================================
+
+  - name: NSA (via ClearanceJobs)
+    careers_url: https://www.clearancejobs.com
+    scan_method: websearch
+    scan_query: 'site:clearancejobs.com "NSA" OR "National Security Agency" "offensive" OR "exploit" OR "reverse engineer" "TS/SCI"'
+    notes: "NSA offensive cyber and vulnerability research roles via ClearanceJobs."
+    enabled: true
+
+  - name: Cyber Command (via ClearanceJobs)
+    careers_url: https://www.clearancejobs.com
+    scan_method: websearch
+    scan_query: 'site:clearancejobs.com "Cyber Command" OR "CYBERCOM" "offensive" OR "red team" OR "exploit" "TS/SCI"'
+    notes: "US Cyber Command offensive operations via ClearanceJobs."
+    enabled: true
+
+  # ============================================================
+  # Defense Tech with Offensive Roles
+  # ============================================================
+
+  - name: Booz Allen Hamilton
+    careers_url: https://job-boards.greenhouse.io/boozallen
+    api: https://boards-api.greenhouse.io/v1/boards/boozallen/jobs
+    notes: "Defense consultancy with offensive cyber, red team, vulnerability research."
+    enabled: true
+
+  - name: CACI International
+    careers_url: https://careers.caci.com
+    scan_method: websearch
+    scan_query: 'site:careers.caci.com "Red Team" OR "Penetration" OR "Offensive" OR "Exploit" OR "TS/SCI"'
+    notes: "Defense IT with offensive cyber operations programs."
+    enabled: true
+
+  - name: Leidos
+    careers_url: https://careers.leidos.com
+    scan_method: websearch
+    scan_query: 'site:careers.leidos.com "Red Team" OR "Penetration" OR "Offensive Cyber" OR "Vulnerability Research"'
+    notes: "Defense IT with offensive cyber and red team programs."
+    enabled: true

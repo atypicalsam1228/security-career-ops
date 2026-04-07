@@ -1,0 +1,267 @@
+# Portal Scanner Configuration — Security Leadership
+# Preset: leadership
+# Focus: CISO, VP/Director security, security program management
+# Clearance: Optional
+
+title_filter:
+  positive:
+    # -- Leadership Titles --
+    - "CISO"
+    - "Chief Information Security"
+    - "VP Security"
+    - "Director Security"
+    - "Head of Security"
+    - "Security Director"
+    - "GRC Director"
+    - "Security Program Manager"
+    - "Security Operations Manager"
+    - "Engineering Manager Security"
+    - "Chief Security"
+    - "Information Security Officer"
+  negative:
+    - "Junior"
+    - "Intern"
+    - "Entry Level"
+    - "Associate"
+    - ".NET"
+    - "PHP"
+    - "Ruby"
+    - "Blockchain"
+    - "Web3"
+    - "Crypto"
+    - "Marketing"
+    - "Sales"
+    - "SAP"
+    - "Mainframe"
+    - "COBOL"
+  seniority_boost:
+    - "Senior"
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Head"
+    - "Director"
+    - "VP"
+    - "C-Suite"
+    - "Executive"
+
+search_queries:
+
+  # -- Greenhouse --
+  - name: Greenhouse — CISO & VP Security
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "CISO" OR "VP Security" OR "Vice President Security" OR "Head of Security"'
+    enabled: true
+
+  - name: Greenhouse — Director Security
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Director" "Security" OR "Information Security" OR "Cybersecurity"'
+    enabled: true
+
+  # -- Lever --
+  - name: Lever — CISO & VP Security
+    query: 'site:jobs.lever.co "CISO" OR "VP Security" OR "Head of Security" OR "Director Security"'
+    enabled: true
+
+  - name: Lever — Security Program Manager
+    query: 'site:jobs.lever.co "Security Program Manager" OR "Security Operations Manager" OR "Engineering Manager Security"'
+    enabled: true
+
+  # -- Ashby --
+  - name: Ashby — Security Leadership
+    query: 'site:jobs.ashbyhq.com "CISO" OR "Head of Security" OR "Director Security" OR "VP Security"'
+    enabled: true
+
+  # -- ClearanceJobs --
+  - name: ClearanceJobs — Security Director
+    query: 'site:clearancejobs.com "Security Director" OR "CISO" OR "ISSM" "director" OR "VP" "TS/SCI"'
+    enabled: true
+
+  # -- General --
+  - name: General — CISO
+    query: '"CISO" OR "Chief Information Security Officer" remote OR hybrid'
+    enabled: true
+
+  - name: General — Head of Security
+    query: '"Head of Security" OR "VP of Security" OR "Vice President" "security" remote OR hybrid'
+    enabled: true
+
+  - name: General — Security Director
+    query: '"Director" "Information Security" OR "Cybersecurity" OR "Security Operations" OR "GRC" remote OR hybrid'
+    enabled: true
+
+  - name: General — Security Program Manager
+    query: '"Security Program Manager" OR "Security Operations Manager" "senior" OR "director" remote OR hybrid'
+    enabled: true
+
+  - name: General — Engineering Manager Security
+    query: '"Engineering Manager" "Security" OR "InfoSec" OR "AppSec" remote OR hybrid'
+    enabled: true
+
+tracked_companies:
+
+  # ============================================================
+  # Fortune 500 Tech
+  # ============================================================
+
+  - name: Google
+    careers_url: https://www.google.com/about/careers
+    scan_method: websearch
+    scan_query: 'site:google.com/about/careers "Director" OR "Head" OR "VP" OR "CISO" "Security" OR "Information Security"'
+    notes: "Big tech. Security leadership across cloud, enterprise, product."
+    enabled: true
+
+  - name: Microsoft
+    careers_url: https://careers.microsoft.com
+    scan_method: websearch
+    scan_query: 'site:careers.microsoft.com "Director" OR "Head" OR "VP" OR "CISO" "Security" OR "Cybersecurity"'
+    notes: "Enterprise tech. Azure, M365, security products leadership."
+    enabled: true
+
+  - name: Amazon
+    careers_url: https://www.amazon.jobs
+    scan_method: websearch
+    scan_query: 'site:amazon.jobs "Director" OR "Head" OR "VP" "Security" OR "Information Security" OR "CISO"'
+    notes: "AWS and Amazon corporate security leadership."
+    enabled: true
+
+  - name: Apple
+    careers_url: https://jobs.apple.com
+    scan_method: websearch
+    scan_query: 'site:jobs.apple.com "Director" OR "Head" OR "Manager" "Security" OR "Information Security"'
+    notes: "Product and enterprise security leadership."
+    enabled: true
+
+  - name: Meta
+    careers_url: https://www.metacareers.com
+    scan_method: websearch
+    scan_query: 'site:metacareers.com "Director" OR "Head" OR "VP" "Security" OR "Information Security" OR "CISO"'
+    notes: "Platform security, privacy, and trust & safety leadership."
+    enabled: true
+
+  # ============================================================
+  # Financial Services
+  # ============================================================
+
+  - name: JPMorgan Chase
+    careers_url: https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/pages/28702
+    scan_method: websearch
+    scan_query: 'site:jpmorgan.com OR site:jpmorganchase.com "Director" OR "VP" OR "CISO" "Cybersecurity" OR "Information Security"'
+    notes: "Largest US bank. Major cybersecurity budget and leadership roles."
+    enabled: true
+
+  - name: Goldman Sachs
+    careers_url: https://www.goldmansachs.com/careers
+    scan_method: websearch
+    scan_query: 'site:goldmansachs.com "Director" OR "VP" OR "Head" "Cybersecurity" OR "Information Security" OR "Technology Risk"'
+    notes: "Investment bank. Engineering-driven security organization."
+    enabled: true
+
+  - name: Stripe
+    careers_url: https://stripe.com/jobs
+    scan_method: websearch
+    scan_query: 'site:stripe.com/jobs "Director" OR "Head" OR "Manager" "Security" OR "Information Security"'
+    notes: "Payments platform. Security engineering and product security leadership."
+    enabled: true
+
+  - name: Block (Square)
+    careers_url: https://job-boards.greenhouse.io/block
+    api: https://boards-api.greenhouse.io/v1/boards/block/jobs
+    notes: "Fintech. Square, Cash App, Bitcoin. Security leadership roles."
+    enabled: true
+
+  # ============================================================
+  # Healthcare
+  # ============================================================
+
+  - name: UnitedHealth Group
+    careers_url: https://careers.unitedhealthgroup.com
+    scan_method: websearch
+    scan_query: 'site:careers.unitedhealthgroup.com "Director" OR "VP" OR "CISO" "Security" OR "Cybersecurity" OR "Information Security"'
+    notes: "Largest US health insurer. Optum tech security leadership."
+    enabled: true
+
+  - name: Optum
+    careers_url: https://careers.unitedhealthgroup.com
+    scan_method: websearch
+    scan_query: 'site:careers.unitedhealthgroup.com "Optum" "Director" OR "VP" OR "Head" "Security" OR "Cybersecurity"'
+    notes: "UHG tech division. Health data security leadership."
+    enabled: true
+
+  # ============================================================
+  # Large SaaS
+  # ============================================================
+
+  - name: Salesforce
+    careers_url: https://careers.salesforce.com
+    scan_method: websearch
+    scan_query: 'site:careers.salesforce.com "Director" OR "VP" OR "Head" OR "CISO" "Security" OR "Trust"'
+    notes: "Enterprise SaaS. Trust and security leadership."
+    enabled: true
+
+  - name: ServiceNow
+    careers_url: https://careers.servicenow.com
+    scan_method: websearch
+    scan_query: 'site:careers.servicenow.com "Director" OR "VP" OR "Head" "Security" OR "Information Security" OR "CISO"'
+    notes: "Enterprise platform. GRC product and corporate security leadership."
+    enabled: true
+
+  - name: Workday
+    careers_url: https://workday.wd5.myworkdayjobs.com/careers
+    scan_method: websearch
+    scan_query: 'site:workday.wd5.myworkdayjobs.com "Director" OR "VP" OR "Head" "Security" OR "Information Security"'
+    notes: "HR/Finance SaaS. Corporate and product security leadership."
+    enabled: true
+
+  - name: Snowflake
+    careers_url: https://job-boards.greenhouse.io/snowflake
+    api: https://boards-api.greenhouse.io/v1/boards/snowflake/jobs
+    notes: "Data cloud platform. Security engineering and product security leadership."
+    enabled: true
+
+  # ============================================================
+  # Defense
+  # ============================================================
+
+  - name: Booz Allen Hamilton
+    careers_url: https://job-boards.greenhouse.io/boozallen
+    api: https://boards-api.greenhouse.io/v1/boards/boozallen/jobs
+    notes: "Defense consultancy. Security practice leadership, CISO advisory."
+    enabled: true
+
+  - name: Leidos
+    careers_url: https://careers.leidos.com
+    scan_method: websearch
+    scan_query: 'site:careers.leidos.com "Director" OR "VP" OR "CISO" "Cybersecurity" OR "Security" "TS/SCI"'
+    notes: "Defense IT. Cyber division leadership roles."
+    enabled: true
+
+  - name: Raytheon (RTX)
+    careers_url: https://careers.rtx.com
+    scan_method: websearch
+    scan_query: 'site:careers.rtx.com "Director" OR "VP" OR "CISO" "Cybersecurity" OR "Information Security"'
+    notes: "Defense prime. Cyber and information security leadership."
+    enabled: true
+
+  # ============================================================
+  # Consulting
+  # ============================================================
+
+  - name: McKinsey & Company
+    careers_url: https://www.mckinsey.com/careers
+    scan_method: websearch
+    scan_query: 'site:mckinsey.com "cybersecurity" OR "information security" OR "CISO" "partner" OR "director" OR "manager"'
+    notes: "Strategy consulting. Cybersecurity practice leadership."
+    enabled: true
+
+  - name: BCG (Boston Consulting Group)
+    careers_url: https://careers.bcg.com
+    scan_method: websearch
+    scan_query: 'site:careers.bcg.com "cybersecurity" OR "security" OR "CISO" "principal" OR "partner" OR "director"'
+    notes: "Strategy consulting. Cyber and digital trust practice."
+    enabled: true
+
+  - name: Deloitte
+    careers_url: https://apply.deloitte.com
+    scan_method: websearch
+    scan_query: 'site:apply.deloitte.com "Director" OR "Managing Director" OR "Partner" "Cybersecurity" OR "Cyber Risk" OR "CISO"'
+    notes: "Big 4. Cyber risk advisory leadership, CISO program."
+    enabled: true

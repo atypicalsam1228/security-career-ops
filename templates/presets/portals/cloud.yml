@@ -1,0 +1,238 @@
+# Portal Scanner Configuration — Cloud-Native Security
+# Preset: cloud
+# Focus: Cloud security, DevSecOps, CNAPP, IAM, Zero Trust, container security
+# Clearance: Optional
+
+title_filter:
+  positive:
+    # -- Cloud Security --
+    - "Cloud Security"
+    - "AWS Security"
+    - "Azure Security"
+    - "GCP Security"
+    - "DevSecOps"
+    - "Container Security"
+    - "Kubernetes Security"
+    - "CSPM"
+    - "CWPP"
+    - "CNAPP"
+    - "IAM"
+    - "Identity"
+    - "Zero Trust"
+    - "Infrastructure Security"
+    - "Platform Security"
+    - "SRE Security"
+  negative:
+    - "Junior"
+    - "Intern"
+    - "Entry Level"
+    - "PHP"
+    - "Ruby"
+    - "Blockchain"
+    - "Web3"
+    - "Crypto"
+    - "Marketing"
+    - "Sales"
+    - "SAP"
+    - "Mainframe"
+    - "COBOL"
+  seniority_boost:
+    - "Senior"
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Head"
+    - "Director"
+    - "Manager"
+
+search_queries:
+
+  # -- Greenhouse --
+  - name: Greenhouse — Cloud Security Engineer
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Cloud Security" OR "AWS Security" OR "Azure Security" OR "GCP Security"'
+    enabled: true
+
+  - name: Greenhouse — DevSecOps & Platform Security
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "DevSecOps" OR "Platform Security" OR "Infrastructure Security" OR "Container Security"'
+    enabled: true
+
+  # -- Ashby --
+  - name: Ashby — Cloud & Container Security
+    query: 'site:jobs.ashbyhq.com "Cloud Security" OR "Container Security" OR "Kubernetes" OR "DevSecOps" OR "CNAPP"'
+    enabled: true
+
+  - name: Ashby — IAM & Zero Trust
+    query: 'site:jobs.ashbyhq.com "IAM" OR "Identity" OR "Zero Trust" OR "Platform Security"'
+    enabled: true
+
+  # -- Lever --
+  - name: Lever — DevSecOps & Cloud
+    query: 'site:jobs.lever.co "DevSecOps" OR "Cloud Security" OR "Infrastructure Security" OR "Platform Security"'
+    enabled: true
+
+  # -- General --
+  - name: General — CNAPP & CSPM
+    query: '"CNAPP" OR "CSPM" OR "CWPP" "engineer" OR "architect" OR "lead" remote'
+    enabled: true
+
+  - name: General — Kubernetes Security
+    query: '"Kubernetes Security" OR "Container Security" OR "K8s Security" "engineer" OR "architect" remote'
+    enabled: true
+
+  - name: General — Cloud Security Architect
+    query: '"Cloud Security Architect" OR "Cloud Security Engineer" remote'
+    enabled: true
+
+  - name: General — Zero Trust Engineer
+    query: '"Zero Trust" "engineer" OR "architect" OR "security" remote'
+    enabled: true
+
+  - name: General — IAM & Identity Security
+    query: '"IAM" OR "Identity Security" OR "Identity Engineer" "cloud" OR "security" remote'
+    enabled: true
+
+  - name: General — DevSecOps Engineer
+    query: '"DevSecOps" "engineer" OR "lead" OR "architect" OR "senior" remote'
+    enabled: true
+
+tracked_companies:
+
+  # ============================================================
+  # Cloud Providers
+  # ============================================================
+
+  - name: Amazon Web Services (AWS)
+    careers_url: https://www.amazon.jobs
+    scan_method: websearch
+    scan_query: 'site:amazon.jobs "AWS" "Cloud Security" OR "Security Engineer" OR "DevSecOps" OR "IAM"'
+    notes: "AWS security team. IAM, GuardDuty, Security Hub, GovCloud."
+    enabled: true
+
+  - name: Microsoft Azure
+    careers_url: https://careers.microsoft.com
+    scan_method: websearch
+    scan_query: 'site:careers.microsoft.com "Azure" "Security" OR "Cloud Security" OR "Identity" OR "Zero Trust"'
+    notes: "Azure security team. Sentinel, Defender, Entra ID."
+    enabled: true
+
+  - name: Google Cloud
+    careers_url: https://www.google.com/about/careers
+    scan_method: websearch
+    scan_query: 'site:google.com/about/careers "Cloud Security" OR "GCP Security" OR "Infrastructure Security" OR "Platform Security"'
+    notes: "Google Cloud security team. Chronicle, BeyondCorp, Mandiant."
+    enabled: true
+
+  # ============================================================
+  # CNAPP / CSPM Vendors
+  # ============================================================
+
+  - name: Wiz
+    careers_url: https://jobs.ashbyhq.com/wiz
+    notes: "CNAPP leader. Cloud security posture management, agentless scanning."
+    enabled: true
+
+  - name: Orca Security
+    careers_url: https://orca.security/about/careers
+    scan_method: websearch
+    scan_query: 'site:orca.security "Security Engineer" OR "Cloud" OR "DevSecOps" OR "Platform"'
+    notes: "Agentless cloud security. CNAPP, CSPM, vulnerability management."
+    enabled: true
+
+  - name: Lacework
+    careers_url: https://job-boards.greenhouse.io/lacework
+    api: https://boards-api.greenhouse.io/v1/boards/lacework/jobs
+    notes: "Cloud security platform. CNAPP, CWPP, anomaly detection."
+    enabled: true
+
+  - name: Aqua Security
+    careers_url: https://job-boards.greenhouse.io/aquasecurity
+    api: https://boards-api.greenhouse.io/v1/boards/aquasecurity/jobs
+    notes: "Cloud native security. Container, serverless, CSPM."
+    enabled: true
+
+  # ============================================================
+  # Identity & Access
+  # ============================================================
+
+  - name: Okta
+    careers_url: https://www.okta.com/company/careers
+    scan_method: websearch
+    scan_query: 'site:okta.com/company/careers "Security" OR "Identity" OR "IAM" OR "Zero Trust"'
+    notes: "Identity leader. Workforce & customer identity, Zero Trust."
+    enabled: true
+
+  - name: CyberArk
+    careers_url: https://www.cyberark.com/company/careers
+    scan_method: websearch
+    scan_query: 'site:cyberark.com "Security" OR "Identity" OR "PAM" OR "Privileged Access"'
+    notes: "Privileged access management leader. Identity security."
+    enabled: true
+
+  - name: BeyondTrust
+    careers_url: https://www.beyondtrust.com/company/careers
+    scan_method: websearch
+    scan_query: 'site:beyondtrust.com "Security" OR "Identity" OR "PAM" OR "Privileged"'
+    notes: "Privileged access and identity security."
+    enabled: true
+
+  # ============================================================
+  # DevSecOps / Supply Chain
+  # ============================================================
+
+  - name: Snyk
+    careers_url: https://snyk.io/careers
+    scan_method: websearch
+    scan_query: 'site:snyk.io/careers "Security" OR "DevSecOps" OR "Cloud" OR "Container"'
+    notes: "Developer security platform. SAST, SCA, container security."
+    enabled: true
+
+  - name: Chainguard
+    careers_url: https://jobs.ashbyhq.com/chainguard
+    notes: "Supply chain security. Hardened container images, SBOM, Sigstore."
+    enabled: true
+
+  - name: Endor Labs
+    careers_url: https://jobs.ashbyhq.com/endor-labs
+    notes: "Dependency management and supply chain security for DevSecOps."
+    enabled: true
+
+  # ============================================================
+  # Container Security
+  # ============================================================
+
+  - name: Sysdig
+    careers_url: https://job-boards.greenhouse.io/sysdig
+    api: https://boards-api.greenhouse.io/v1/boards/sysdig/jobs
+    notes: "Container and cloud security. Runtime protection, Falco."
+    enabled: true
+
+  - name: Tigera
+    careers_url: https://job-boards.greenhouse.io/tigera
+    api: https://boards-api.greenhouse.io/v1/boards/tigera/jobs
+    notes: "Calico creators. Kubernetes networking and security."
+    enabled: true
+
+  # ============================================================
+  # Network / CSPM
+  # ============================================================
+
+  - name: Palo Alto Networks
+    careers_url: https://jobs.paloaltonetworks.com
+    scan_method: websearch
+    scan_query: 'site:jobs.paloaltonetworks.com "Cloud Security" OR "Prisma" OR "CSPM" OR "DevSecOps" OR "Container"'
+    notes: "Prisma Cloud CNAPP. CSPM, CWPP, code security."
+    enabled: true
+
+  - name: Zscaler
+    careers_url: https://www.zscaler.com/careers
+    scan_method: websearch
+    scan_query: 'site:zscaler.com/careers "Cloud Security" OR "Zero Trust" OR "Platform" OR "Infrastructure"'
+    notes: "Zero Trust network security. Cloud-native SASE platform."
+    enabled: true
+
+  - name: CrowdStrike
+    careers_url: https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers
+    scan_method: websearch
+    scan_query: 'site:crowdstrike.wd5.myworkdayjobs.com "Cloud Security" OR "DevSecOps" OR "Infrastructure" OR "Platform Security"'
+    notes: "Falcon cloud security. CNAPP, cloud workload protection."
+    enabled: true

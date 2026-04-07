@@ -1,0 +1,222 @@
+# Portal Scanner Configuration — AI/ML Security
+# Preset: ai-security
+# Focus: AI safety, AI governance, LLM security, AI red teaming, responsible AI
+# Clearance: Optional for defense AI roles
+
+title_filter:
+  positive:
+    # -- AI Security & Safety --
+    - "AI Security"
+    - "AI Safety"
+    - "AI Governance"
+    - "AI Risk"
+    - "AI Red Team"
+    - "LLM Security"
+    - "ML Security"
+    - "Responsible AI"
+    - "AI Ethics"
+    - "Prompt Injection"
+    - "AI Assurance"
+    - "Trustworthy AI"
+    - "AI Compliance"
+    - "NIST AI RMF"
+    - "Machine Learning Security"
+  negative:
+    - "Junior"
+    - "Intern"
+    - "Entry Level"
+    - "PHP"
+    - "Ruby"
+    - "Blockchain"
+    - "Web3"
+    - "Crypto"
+    - "Marketing"
+    - "Sales"
+    - "SAP"
+    - "Mainframe"
+    - "COBOL"
+  seniority_boost:
+    - "Senior"
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Head"
+    - "Director"
+    - "Manager"
+
+search_queries:
+
+  # -- Greenhouse --
+  - name: Greenhouse — AI Security & Safety
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "AI Security" OR "AI Safety" OR "AI Red Team" OR "LLM Security"'
+    enabled: true
+
+  - name: Greenhouse — AI Governance & Responsible AI
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "AI Governance" OR "Responsible AI" OR "AI Ethics" OR "AI Risk" OR "AI Compliance"'
+    enabled: true
+
+  # -- Ashby --
+  - name: Ashby — AI Security & Safety
+    query: 'site:jobs.ashbyhq.com "AI Security" OR "AI Safety" OR "AI Red Team" OR "ML Security" OR "Trustworthy AI"'
+    enabled: true
+
+  # -- Lever --
+  - name: Lever — AI Governance & Risk
+    query: 'site:jobs.lever.co "AI Governance" OR "AI Risk" OR "Responsible AI" OR "AI Safety" OR "AI Security"'
+    enabled: true
+
+  # -- ClearanceJobs --
+  - name: ClearanceJobs — AI/ML Security
+    query: 'site:clearancejobs.com "AI Security" OR "Machine Learning" OR "AI Safety" OR "AI Governance" "TS/SCI"'
+    enabled: true
+
+  - name: ClearanceJobs — AI Red Team
+    query: 'site:clearancejobs.com "AI Red Team" OR "AI Assurance" OR "AI Risk" OR "AI Testing" "TS/SCI"'
+    enabled: true
+
+  # -- General --
+  - name: General — Responsible AI
+    query: '"Responsible AI" OR "AI Ethics" "engineer" OR "manager" OR "lead" OR "program" remote'
+    enabled: true
+
+  - name: General — AI Safety Researcher
+    query: '"AI Safety" "researcher" OR "engineer" OR "scientist" OR "lead" remote'
+    enabled: true
+
+  - name: General — AI Red Team
+    query: '"AI Red Team" OR "LLM Red Team" OR "AI Adversarial" "engineer" OR "researcher" OR "lead" remote'
+    enabled: true
+
+  - name: General — AI Governance
+    query: '"AI Governance" OR "AI Compliance" OR "NIST AI RMF" "engineer" OR "manager" OR "analyst" remote'
+    enabled: true
+
+  - name: General — ML Security Engineer
+    query: '"ML Security" OR "Machine Learning Security" OR "AI Security Engineer" remote'
+    enabled: true
+
+  - name: General — Trustworthy AI
+    query: '"Trustworthy AI" OR "AI Assurance" OR "AI Risk Management" remote'
+    enabled: true
+
+tracked_companies:
+
+  # ============================================================
+  # AI Labs
+  # ============================================================
+
+  - name: Anthropic
+    careers_url: https://job-boards.greenhouse.io/anthropic
+    api: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs
+    notes: "AI safety lab. Claude. Security, trust & safety, AI governance roles."
+    enabled: true
+
+  - name: OpenAI
+    careers_url: https://jobs.ashbyhq.com/openai
+    notes: "AI lab. GPT models. AI safety, security, red teaming roles."
+    enabled: true
+
+  - name: Google DeepMind
+    careers_url: https://www.google.com/about/careers
+    scan_method: websearch
+    scan_query: 'site:google.com/about/careers "DeepMind" "AI Safety" OR "AI Security" OR "Responsible AI" OR "AI Governance"'
+    notes: "Google AI research lab. AI safety, alignment, responsible AI."
+    enabled: true
+
+  - name: Meta AI (FAIR)
+    careers_url: https://www.metacareers.com
+    scan_method: websearch
+    scan_query: 'site:metacareers.com "AI Safety" OR "AI Security" OR "Responsible AI" OR "AI Red Team" OR "AI Governance"'
+    notes: "Meta AI research. Llama models. AI safety and responsible AI."
+    enabled: true
+
+  # ============================================================
+  # AI Security Startups
+  # ============================================================
+
+  - name: Lakera
+    careers_url: https://jobs.ashbyhq.com/lakera
+    notes: "AI security startup. LLM guard rails, prompt injection defense."
+    enabled: true
+
+  - name: Protect AI
+    careers_url: https://job-boards.greenhouse.io/protectai
+    api: https://boards-api.greenhouse.io/v1/boards/protectai/jobs
+    notes: "ML security platform. Model scanning, supply chain security for AI."
+    enabled: true
+
+  - name: HiddenLayer
+    careers_url: https://jobs.lever.co/hiddenlayer
+    notes: "AI security startup. Adversarial ML detection and defense."
+    enabled: true
+
+  - name: Robust Intelligence
+    careers_url: https://jobs.lever.co/robustintelligence
+    notes: "AI security and validation. Model risk management platform."
+    enabled: true
+
+  - name: CalypsoAI
+    careers_url: https://www.calypsoai.com/careers
+    scan_method: websearch
+    scan_query: 'site:calypsoai.com "AI Security" OR "AI Safety" OR "LLM" OR "AI Governance"'
+    notes: "AI security platform. LLM security, model scanning, AI governance."
+    enabled: true
+
+  # ============================================================
+  # AI Governance
+  # ============================================================
+
+  - name: Holistic AI
+    careers_url: https://jobs.lever.co/holisticai
+    notes: "AI governance and risk management platform."
+    enabled: true
+
+  - name: Credo AI
+    careers_url: https://jobs.ashbyhq.com/credo-ai
+    notes: "AI governance platform. Responsible AI, AI risk management."
+    enabled: true
+
+  - name: IBM AI Ethics
+    careers_url: https://www.ibm.com/careers
+    scan_method: websearch
+    scan_query: 'site:ibm.com/careers "AI Ethics" OR "AI Governance" OR "Responsible AI" OR "AI Risk" OR "Trustworthy AI"'
+    notes: "IBM AI Ethics team. Watson, AI governance, responsible AI."
+    enabled: true
+
+  # ============================================================
+  # Defense AI
+  # ============================================================
+
+  - name: Anduril
+    careers_url: https://jobs.ashbyhq.com/anduril
+    notes: "Defense tech. Autonomous systems, AI safety for defense applications."
+    enabled: true
+
+  - name: Shield AI
+    careers_url: https://jobs.lever.co/shieldai
+    notes: "Defense AI. Autonomous drones, Hivemind autonomy stack."
+    enabled: true
+
+  - name: Scale AI
+    careers_url: https://job-boards.greenhouse.io/scaleai
+    api: https://boards-api.greenhouse.io/v1/boards/scaleai/jobs
+    notes: "AI data platform. Defense contracts, AI safety evaluation, RLHF."
+    enabled: true
+
+  # ============================================================
+  # Standards Bodies (via ClearanceJobs / USAJobs)
+  # ============================================================
+
+  - name: NIST (via USAJobs)
+    careers_url: https://www.nist.gov/careers
+    scan_method: websearch
+    scan_query: 'site:usajobs.gov "NIST" "AI" OR "artificial intelligence" OR "machine learning" OR "AI RMF"'
+    notes: "NIST AI RMF development. AI standards and frameworks."
+    enabled: true
+
+  - name: MITRE (via ClearanceJobs)
+    careers_url: https://careers.mitre.org
+    scan_method: websearch
+    scan_query: 'site:careers.mitre.org "AI" OR "Machine Learning" OR "AI Safety" OR "AI Security" OR "AI Assurance"'
+    notes: "FFRDC. ATLAS framework for AI threats. AI safety research."
+    enabled: true

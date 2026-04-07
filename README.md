@@ -127,23 +127,30 @@ The `default` preset configures 6 role archetypes optimized for cybersecurity pr
 
 ## Tracked Employers
 
-### Federal/Defense Contractors
-Booz Allen Hamilton, Leidos, SAIC, Northrop Grumman, RTX (Raytheon), General Dynamics IT, ManTech, CACI International, Peraton
+The default portal config tracks 24 security/defense employers. You can swap entire employer sets with portal presets:
 
-### Cloud Security Vendors
-CrowdStrike, Palo Alto Networks, Wiz, Zscaler
+```
+/security-career-ops portals
+> swap to offensive
+```
 
-### 3PAO/Assessors
-Coalfire, Schellman
+| Portal Preset | Companies | Focus Employers |
+|---------------|:---------:|-----------------|
+| `default` | ~24 | Booz Allen, Leidos, CrowdStrike, Wiz, Coalfire, Anthropic |
+| `grc` | ~20 | Defense primes, 3PAOs (Coalfire, Schellman, A-LIGN), GRC platforms, federal consulting |
+| `offensive` | ~17 | HackerOne, Bugcrowd, Rapid7, Bishop Fox, SpecterOps, NCC Group, Mandiant |
+| `cloud` | ~18 | AWS, Wiz, Orca, Snyk, Chainguard, Okta, CyberArk, Sysdig |
+| `ai-security` | ~17 | Anthropic, OpenAI, Lakera, Protect AI, HiddenLayer, Anduril, Scale AI |
+| `soc` | ~17 | Splunk, Elastic, CrowdStrike, SentinelOne, Arctic Wolf, Expel, Mandiant |
+| `leadership` | ~21 | Google, Microsoft, Amazon, JPMorgan, Salesforce, Snowflake, Booz Allen |
 
-### Defense Tech
-Anduril, Shield AI, Palantir
+You can also add individual companies:
+```
+/security-career-ops portals
+> add "Dragos"
+```
 
-### Security-First Startups
-Chainguard, Snyk, Elastic
-
-### AI Safety
-Anthropic (security team)
+The skill auto-detects the ATS platform and builds the YAML entry for you.
 
 ## Obsidian Career Vault
 
@@ -174,14 +181,22 @@ security-career-ops/
     modes/_profile.md                 # Security archetypes + Firecrawl overrides
     portals.yml                       # Defense/security employer config
     profile.yml                       # Profile template with security roles
-    presets/                          # Archetype preset packs
-      default.md                     #   General security/compliance
-      grc.md                         #   Federal compliance (ISSM, ISSO, RMF)
-      offensive.md                   #   Red team / pentesting
-      cloud.md                       #   Cloud-native security
-      ai-security.md                 #   AI/ML security
-      soc.md                         #   Security operations
-      leadership.md                  #   CISO / security management
+    presets/                          # Preset packs (archetypes + portals)
+      default.md                     #   Archetypes: General security/compliance
+      grc.md                         #   Archetypes: Federal compliance
+      offensive.md                   #   Archetypes: Red team / pentesting
+      cloud.md                       #   Archetypes: Cloud-native security
+      ai-security.md                 #   Archetypes: AI/ML security
+      soc.md                         #   Archetypes: Security operations
+      leadership.md                  #   Archetypes: CISO / security management
+      portals/                       #   Matching portal configs
+        default.yml                  #     Defense primes, cloud security, 3PAOs
+        grc.yml                      #     Federal compliance employers
+        offensive.yml                #     Pentest firms, bug bounty platforms
+        cloud.yml                    #     Cloud providers, CNAPP, DevSecOps
+        ai-security.yml              #     AI labs, AI security startups
+        soc.yml                      #     SIEM/SOAR, MDR, EDR vendors
+        leadership.yml               #     Fortune 500, finance, large SaaS
     obsidian/
       VAULT-INDEX.md                  # Vault index
       Templates/

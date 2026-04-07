@@ -1,0 +1,345 @@
+# Portal Scanner Configuration — TS/SCI Cybersecurity Professional
+# Used by /career-ops scan to discover new offers automatically.
+#
+# Strategy (3 levels):
+#   1. Playwright → careers_url of each company (real-time, reliable)
+#   2. Greenhouse API → structured JSON (fast, Greenhouse-only)
+#   3. WebSearch with site: filters (broad discovery, may be stale)
+#
+# IMPORTANT: Each company in tracked_companies MUST have careers_url.
+#
+# Focus: GRC, ISSM, Cloud Security, AI Security, DevSecOps
+# Clearance: TS/SCI
+
+# -- Title filter --
+# The scanner uses these keywords to decide if a title is relevant.
+# At least 1 positive must match AND 0 negatives must match (case-insensitive).
+
+title_filter:
+  positive:
+    # -- GRC / Compliance / RMF --
+    - "GRC"
+    - "Compliance"
+    - "RMF"
+    - "FedRAMP"
+    - "NIST"
+    - "FISMA"
+    - "CMMC"
+    - "STIG"
+    - "ATO"
+    - "Zero Trust"
+    # -- Security Engineering & Architecture --
+    - "Security Engineer"
+    - "Security Architect"
+    - "Cloud Security"
+    - "Cybersecurity"
+    - "Information Security"
+    - "InfoSec"
+    # -- ISSO / ISSM --
+    - "ISSO"
+    - "ISSM"
+    # -- DevSecOps & SecOps --
+    - "DevSecOps"
+    - "Security Operations"
+    - "SOC"
+    # -- AI Security & Governance --
+    - "AI Security"
+    - "AI Governance"
+    # -- Risk & Vulnerability --
+    - "Risk Management"
+    - "Vulnerability Management"
+    # -- Clearance keywords --
+    - "Cleared"
+    - "TS/SCI"
+    - "Secret"
+    - "Top Secret"
+  negative:
+    # -- Seniority mismatch --
+    - "Junior"
+    - "Intern"
+    - "Entry Level"
+    # -- Wrong tech stacks --
+    - ".NET"
+    - "Java "
+    - "iOS"
+    - "Android"
+    - "PHP"
+    - "Ruby"
+    # -- Irrelevant domains --
+    - "Blockchain"
+    - "Web3"
+    - "Crypto"
+    - "Salesforce Admin"
+    - "SAP"
+    - "Oracle EBS"
+    - "Mainframe"
+    - "COBOL"
+    # -- Non-security business roles --
+    - "Marketing"
+    - "Sales"
+  seniority_boost:
+    # These prefixes add relevance but are not required
+    - "Senior"
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Head"
+    - "Director"
+    - "Manager"
+
+# -- Search queries --
+# Each query triggers a WebSearch. Use site: to filter by portal.
+# The scanner extracts title, URL, and company from results.
+
+search_queries:
+
+  # -- ClearanceJobs --
+  - name: ClearanceJobs — GRC & RMF
+    query: 'site:clearancejobs.com "GRC" OR "RMF" OR "FedRAMP" OR "NIST" "TS/SCI" remote'
+    enabled: true
+
+  - name: ClearanceJobs — ISSM & ISSO
+    query: 'site:clearancejobs.com "ISSM" OR "ISSO" OR "Information System Security" "TS/SCI"'
+    enabled: true
+
+  - name: ClearanceJobs — Cloud Security
+    query: 'site:clearancejobs.com "Cloud Security" OR "AWS Security" OR "Azure Security" "TS/SCI"'
+    enabled: true
+
+  - name: ClearanceJobs — DevSecOps
+    query: 'site:clearancejobs.com "DevSecOps" OR "Security Engineer" "TS/SCI" remote'
+    enabled: true
+
+  - name: ClearanceJobs — Zero Trust & STIG
+    query: 'site:clearancejobs.com "Zero Trust" OR "STIG" OR "ATO" "TS/SCI"'
+    enabled: true
+
+  # -- Greenhouse --
+  - name: Greenhouse — Security Engineer
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Security Engineer" OR "Cloud Security" OR "Cybersecurity" remote'
+    enabled: true
+
+  - name: Greenhouse — DevSecOps
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "DevSecOps" OR "Security Operations" remote'
+    enabled: true
+
+  - name: Greenhouse — Compliance & ISSO
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Compliance" OR "ISSO" OR "GRC" OR "FedRAMP" remote'
+    enabled: true
+
+  - name: Greenhouse — AI Security
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "AI Security" OR "AI Governance" OR "AI Safety" remote'
+    enabled: true
+
+  # -- Ashby --
+  - name: Ashby — Security Engineer
+    query: 'site:jobs.ashbyhq.com "Security Engineer" OR "Cloud Security" OR "Cybersecurity" remote'
+    enabled: true
+
+  - name: Ashby — GRC & Compliance
+    query: 'site:jobs.ashbyhq.com "GRC" OR "Compliance" OR "FedRAMP" OR "Risk" remote'
+    enabled: true
+
+  - name: Ashby — DevSecOps
+    query: 'site:jobs.ashbyhq.com "DevSecOps" OR "Security Operations" remote'
+    enabled: true
+
+  # -- Lever --
+  - name: Lever — Security Architect
+    query: 'site:jobs.lever.co "Security Architect" OR "Security Engineer" OR "Cloud Security" remote'
+    enabled: true
+
+  - name: Lever — DevSecOps
+    query: 'site:jobs.lever.co "DevSecOps" OR "Security Operations" OR "ISSO" remote'
+    enabled: true
+
+  # -- General / Cross-portal --
+  - name: General — TS/SCI Cybersecurity
+    query: '"TS/SCI" "cybersecurity" OR "information security" OR "ISSM" remote'
+    enabled: true
+
+  - name: General — FedRAMP Engineer
+    query: '"FedRAMP" "engineer" OR "architect" OR "assessor" remote'
+    enabled: true
+
+  - name: General — CMMC & DFARS
+    query: '"CMMC" OR "DFARS" "security" OR "compliance" OR "assessor" remote'
+    enabled: true
+
+  - name: General — AI Security Roles
+    query: '"AI Security" OR "AI Governance" OR "AI Safety" "engineer" OR "architect" OR "manager" remote'
+    enabled: true
+
+# -- Tracked companies --
+# Companies whose career pages are checked directly.
+# scan_method: playwright (default), websearch, greenhouse_api
+# For Greenhouse companies, add api: field for faster structured JSON access.
+
+tracked_companies:
+
+  # ============================================================
+  # Federal / Defense Contractors
+  # ============================================================
+
+  - name: Booz Allen Hamilton
+    careers_url: https://job-boards.greenhouse.io/boozallen
+    api: https://boards-api.greenhouse.io/v1/boards/boozallen/jobs
+    notes: "Top defense consultancy. Strong cyber, cloud, AI/ML practices. TS/SCI roles."
+    enabled: true
+
+  - name: Leidos
+    careers_url: https://careers.leidos.com
+    scan_method: websearch
+    scan_query: 'site:careers.leidos.com "ISSM" OR "Cloud Security" OR "GRC" OR "DevSecOps" OR "FedRAMP"'
+    notes: "Major defense IT. Large cyber workforce. TS/SCI clearance roles."
+    enabled: true
+
+  - name: SAIC
+    careers_url: https://jobs.saic.com
+    scan_method: websearch
+    scan_query: 'site:jobs.saic.com "ISSM" OR "Cybersecurity" OR "Cloud Security" OR "RMF" OR "TS/SCI"'
+    notes: "Defense & intel IT services. Cloud migration, cyber operations."
+    enabled: true
+
+  - name: Northrop Grumman
+    careers_url: https://www.northropgrumman.com/careers
+    scan_method: websearch
+    scan_query: 'site:northropgrumman.com/careers "Cybersecurity" OR "ISSM" OR "Cloud Security" OR "TS/SCI"'
+    notes: "Defense prime. Space, cyber, C4ISR. TS/SCI programs."
+    enabled: true
+
+  - name: Raytheon (RTX)
+    careers_url: https://careers.rtx.com
+    scan_method: websearch
+    scan_query: 'site:careers.rtx.com "Cybersecurity" OR "ISSM" OR "Security Architect" OR "TS/SCI"'
+    notes: "Defense prime. Missiles, radar, cyber. TS/SCI programs."
+    enabled: true
+
+  - name: General Dynamics IT (GDIT)
+    careers_url: https://www.gdit.com/careers
+    scan_method: websearch
+    scan_query: 'site:gdit.com "ISSM" OR "Cloud Security" OR "DevSecOps" OR "FedRAMP" OR "TS/SCI"'
+    notes: "Federal IT services. Cloud, cyber, AI for DoD/IC. TS/SCI roles."
+    enabled: true
+
+  - name: ManTech
+    careers_url: https://www.mantech.com/careers
+    scan_method: websearch
+    scan_query: 'site:mantech.com "Cybersecurity" OR "ISSM" OR "Cloud Security" OR "TS/SCI"'
+    notes: "Defense IT & cyber. IC and DoD contracts. TS/SCI roles."
+    enabled: true
+
+  - name: CACI International
+    careers_url: https://careers.caci.com
+    scan_method: websearch
+    scan_query: 'site:careers.caci.com "ISSM" OR "Cybersecurity" OR "DevSecOps" OR "Cloud Security" OR "TS/SCI"'
+    notes: "Defense & intel IT. Cyber, signals intel, cloud. TS/SCI roles."
+    enabled: true
+
+  - name: Peraton
+    careers_url: https://www.peraton.com/careers
+    scan_method: websearch
+    scan_query: 'site:peraton.com "Cybersecurity" OR "ISSM" OR "Cloud Security" OR "TS/SCI"'
+    notes: "National security IT. Formed from Northrop Grumman IT. TS/SCI programs."
+    enabled: true
+
+  # ============================================================
+  # Cloud Security Vendors
+  # ============================================================
+
+  - name: CrowdStrike
+    careers_url: https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers
+    scan_method: websearch
+    scan_query: 'site:crowdstrike.wd5.myworkdayjobs.com "Security" OR "GRC" OR "Compliance" OR "FedRAMP" OR "Cloud"'
+    notes: "Endpoint & cloud security leader. FedRAMP authorized. GovCloud practice."
+    enabled: true
+
+  - name: Palo Alto Networks
+    careers_url: https://jobs.paloaltonetworks.com
+    scan_method: websearch
+    scan_query: 'site:jobs.paloaltonetworks.com "Security" OR "Cloud" OR "GRC" OR "Compliance" OR "DevSecOps"'
+    notes: "Network & cloud security leader. Prisma Cloud, Cortex XSIAM."
+    enabled: true
+
+  - name: Wiz
+    careers_url: https://jobs.ashbyhq.com/wiz
+    notes: "Cloud security posture management. Fastest growing cybersecurity startup."
+    enabled: true
+
+  - name: Zscaler
+    careers_url: https://www.zscaler.com/careers
+    scan_method: websearch
+    scan_query: 'site:zscaler.com/careers "Security" OR "Cloud" OR "Zero Trust" OR "FedRAMP" OR "Compliance"'
+    notes: "Zero Trust network security. FedRAMP authorized. GovCloud."
+    enabled: true
+
+  # ============================================================
+  # 3PAO / Assessors / Compliance Consultancies
+  # ============================================================
+
+  - name: Coalfire
+    careers_url: https://www.coalfire.com/careers
+    scan_method: websearch
+    scan_query: 'site:coalfire.com/careers "FedRAMP" OR "Assessor" OR "GRC" OR "Cloud Security" OR "Compliance"'
+    notes: "Leading 3PAO. FedRAMP, PCI, SOC assessments. Cloud security consulting."
+    enabled: true
+
+  - name: Schellman
+    careers_url: https://www.schellman.com/careers
+    scan_method: websearch
+    scan_query: 'site:schellman.com/careers "FedRAMP" OR "Assessor" OR "Compliance" OR "Cloud Security"'
+    notes: "3PAO and compliance assessor. FedRAMP, SOC 2, ISO 27001."
+    enabled: true
+
+  # ============================================================
+  # AI Safety / Security
+  # ============================================================
+
+  - name: Anthropic
+    careers_url: https://job-boards.greenhouse.io/anthropic
+    api: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs
+    notes: "AI safety lab. Security, trust & safety, compliance, and AI governance roles."
+    enabled: true
+
+  - name: Palantir
+    careers_url: https://jobs.lever.co/palantir
+    notes: "Data analytics for defense & intel. TS/SCI programs. FedRAMP."
+    enabled: true
+
+  # ============================================================
+  # Defense Tech / AI + Security Startups
+  # ============================================================
+
+  - name: Anduril
+    careers_url: https://jobs.ashbyhq.com/anduril
+    notes: "Defense tech. Autonomous systems, counter-UAS. TS/SCI programs."
+    enabled: true
+
+  - name: Shield AI
+    careers_url: https://jobs.lever.co/shieldai
+    notes: "Defense AI. Autonomous drones, Hivemind autonomy stack. TS/SCI."
+    enabled: true
+
+  - name: Rise8
+    careers_url: https://jobs.lever.co/rise8
+    notes: "DevSecOps for DoD. Platform One, Kubernetes, CI/CD for government."
+    enabled: true
+
+  - name: Chainguard
+    careers_url: https://jobs.ashbyhq.com/chainguard
+    notes: "Supply chain security. Hardened container images, SBOM, Sigstore."
+    enabled: true
+
+  - name: Snyk
+    careers_url: https://snyk.io/careers
+    scan_method: websearch
+    scan_query: 'site:snyk.io/careers "Security" OR "DevSecOps" OR "Compliance" OR "Cloud"'
+    notes: "Developer security platform. SAST, SCA, container security."
+    enabled: true
+
+  - name: Elastic
+    careers_url: https://www.elastic.co/careers
+    scan_method: websearch
+    scan_query: 'site:elastic.co/careers "Security" OR "SIEM" OR "Detection" OR "Cloud" OR "FedRAMP"'
+    notes: "Elastic Security (SIEM/XDR). FedRAMP authorized. GovCloud."
+    enabled: true

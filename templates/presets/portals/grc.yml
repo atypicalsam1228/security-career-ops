@@ -1,0 +1,267 @@
+# Portal Scanner Configuration — Federal Compliance / GRC
+# Preset: grc
+# Focus: RMF, FedRAMP, FISMA, CMMC, ISSO/ISSM, 3PAO, ATO
+# Clearance: TS/SCI preferred
+
+title_filter:
+  positive:
+    # -- Core GRC --
+    - "RMF"
+    - "NIST"
+    - "FedRAMP"
+    - "FISMA"
+    - "CMMC"
+    - "DFARS"
+    - "ISSO"
+    - "ISSM"
+    - "Compliance"
+    - "GRC"
+    - "ATO"
+    - "Authorization"
+    - "eMASS"
+    - "OSCAL"
+    - "POA&M"
+    - "Security Control"
+    - "Assessor"
+    - "3PAO"
+    - "Auditor"
+  negative:
+    - "Junior"
+    - "Intern"
+    - "Entry Level"
+    - ".NET"
+    - "Java "
+    - "iOS"
+    - "Android"
+    - "PHP"
+    - "Ruby"
+    - "Blockchain"
+    - "Web3"
+    - "Crypto"
+    - "Marketing"
+    - "Sales"
+    - "Mainframe"
+    - "COBOL"
+  seniority_boost:
+    - "Senior"
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Head"
+    - "Director"
+    - "Manager"
+
+search_queries:
+
+  # -- ClearanceJobs --
+  - name: ClearanceJobs — ISSO & ISSM
+    query: 'site:clearancejobs.com "ISSO" OR "ISSM" OR "Information System Security" "TS/SCI"'
+    enabled: true
+
+  - name: ClearanceJobs — RMF & ATO
+    query: 'site:clearancejobs.com "RMF" OR "ATO" OR "Risk Management Framework" "TS/SCI"'
+    enabled: true
+
+  - name: ClearanceJobs — FedRAMP & CMMC
+    query: 'site:clearancejobs.com "FedRAMP" OR "CMMC" OR "DFARS" OR "FISMA"'
+    enabled: true
+
+  # -- USAJobs --
+  - name: USAJobs — Cybersecurity GRC
+    query: 'site:usajobs.gov "cybersecurity" OR "information security" OR "ISSM" OR "ISSO" OR "GRC"'
+    enabled: true
+
+  - name: USAJobs — FedRAMP & Compliance
+    query: 'site:usajobs.gov "FedRAMP" OR "compliance" OR "RMF" OR "ATO" OR "security control assessor"'
+    enabled: true
+
+  # -- Greenhouse --
+  - name: Greenhouse — Compliance Engineer
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Compliance" OR "GRC" OR "FedRAMP" OR "NIST" OR "Assessor"'
+    enabled: true
+
+  - name: Greenhouse — ISSO & ISSM
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "ISSO" OR "ISSM" OR "Security Control" OR "Authorization"'
+    enabled: true
+
+  # -- Ashby --
+  - name: Ashby — GRC & Compliance
+    query: 'site:jobs.ashbyhq.com "GRC" OR "Compliance" OR "FedRAMP" OR "RMF" OR "ATO"'
+    enabled: true
+
+  # -- Lever --
+  - name: Lever — Compliance & GRC
+    query: 'site:jobs.lever.co "Compliance" OR "GRC" OR "FedRAMP" OR "Security Control"'
+    enabled: true
+
+  # -- General --
+  - name: General — eMASS & OSCAL
+    query: '"eMASS" OR "OSCAL" "engineer" OR "analyst" OR "specialist" remote'
+    enabled: true
+
+  - name: General — 3PAO Assessor
+    query: '"3PAO" OR "FedRAMP assessor" OR "security control assessor" remote'
+    enabled: true
+
+  - name: General — CMMC & DFARS
+    query: '"CMMC" OR "DFARS" "assessor" OR "compliance" OR "analyst" remote'
+    enabled: true
+
+tracked_companies:
+
+  # ============================================================
+  # Defense Primes
+  # ============================================================
+
+  - name: Booz Allen Hamilton
+    careers_url: https://job-boards.greenhouse.io/boozallen
+    api: https://boards-api.greenhouse.io/v1/boards/boozallen/jobs
+    notes: "Top defense consultancy. Strong cyber, GRC, RMF practices. TS/SCI roles."
+    enabled: true
+
+  - name: Leidos
+    careers_url: https://careers.leidos.com
+    scan_method: websearch
+    scan_query: 'site:careers.leidos.com "ISSM" OR "ISSO" OR "GRC" OR "RMF" OR "FedRAMP" OR "ATO"'
+    notes: "Major defense IT. Large compliance workforce. TS/SCI clearance roles."
+    enabled: true
+
+  - name: SAIC
+    careers_url: https://jobs.saic.com
+    scan_method: websearch
+    scan_query: 'site:jobs.saic.com "ISSM" OR "ISSO" OR "RMF" OR "FedRAMP" OR "GRC" OR "TS/SCI"'
+    notes: "Defense & intel IT services. RMF and ATO programs."
+    enabled: true
+
+  - name: Northrop Grumman
+    careers_url: https://www.northropgrumman.com/careers
+    scan_method: websearch
+    scan_query: 'site:northropgrumman.com/careers "ISSM" OR "ISSO" OR "RMF" OR "Compliance" OR "TS/SCI"'
+    notes: "Defense prime. Space, cyber, C4ISR. TS/SCI programs."
+    enabled: true
+
+  - name: General Dynamics IT (GDIT)
+    careers_url: https://www.gdit.com/careers
+    scan_method: websearch
+    scan_query: 'site:gdit.com "ISSM" OR "ISSO" OR "RMF" OR "FedRAMP" OR "GRC" OR "TS/SCI"'
+    notes: "Federal IT services. RMF, FedRAMP, ATO for DoD/IC."
+    enabled: true
+
+  - name: CACI International
+    careers_url: https://careers.caci.com
+    scan_method: websearch
+    scan_query: 'site:careers.caci.com "ISSM" OR "ISSO" OR "RMF" OR "GRC" OR "Compliance" OR "TS/SCI"'
+    notes: "Defense & intel IT. Compliance, GRC, RMF programs."
+    enabled: true
+
+  - name: Peraton
+    careers_url: https://www.peraton.com/careers
+    scan_method: websearch
+    scan_query: 'site:peraton.com "ISSM" OR "ISSO" OR "RMF" OR "Compliance" OR "TS/SCI"'
+    notes: "National security IT. RMF and ATO programs. TS/SCI."
+    enabled: true
+
+  - name: ManTech
+    careers_url: https://www.mantech.com/careers
+    scan_method: websearch
+    scan_query: 'site:mantech.com "ISSM" OR "ISSO" OR "RMF" OR "GRC" OR "TS/SCI"'
+    notes: "Defense IT & cyber. IC and DoD compliance contracts."
+    enabled: true
+
+  - name: Raytheon (RTX)
+    careers_url: https://careers.rtx.com
+    scan_method: websearch
+    scan_query: 'site:careers.rtx.com "ISSM" OR "ISSO" OR "RMF" OR "Compliance" OR "TS/SCI"'
+    notes: "Defense prime. TS/SCI compliance and RMF programs."
+    enabled: true
+
+  # ============================================================
+  # Federal Agencies (via job boards)
+  # ============================================================
+
+  - name: CISA (DHS)
+    careers_url: https://www.cisa.gov/careers
+    scan_method: websearch
+    scan_query: 'site:usajobs.gov "CISA" OR "Cybersecurity and Infrastructure Security Agency" "cybersecurity" OR "compliance"'
+    notes: "DHS cybersecurity agency. Federal civilian cyber roles."
+    enabled: true
+
+  - name: NIST
+    careers_url: https://www.nist.gov/careers
+    scan_method: websearch
+    scan_query: 'site:usajobs.gov "NIST" OR "National Institute of Standards" "cybersecurity" OR "risk management"'
+    notes: "Standards body. RMF, OSCAL, cybersecurity framework roles."
+    enabled: true
+
+  # ============================================================
+  # 3PAOs & Compliance Assessors
+  # ============================================================
+
+  - name: Coalfire
+    careers_url: https://www.coalfire.com/careers
+    scan_method: websearch
+    scan_query: 'site:coalfire.com/careers "FedRAMP" OR "Assessor" OR "GRC" OR "Compliance" OR "3PAO"'
+    notes: "Leading 3PAO. FedRAMP, PCI, SOC assessments."
+    enabled: true
+
+  - name: Schellman
+    careers_url: https://www.schellman.com/careers
+    scan_method: websearch
+    scan_query: 'site:schellman.com/careers "FedRAMP" OR "Assessor" OR "Compliance" OR "3PAO"'
+    notes: "3PAO and compliance assessor. FedRAMP, SOC 2, ISO 27001."
+    enabled: true
+
+  - name: A-LIGN
+    careers_url: https://jobs.lever.co/a-lign
+    notes: "3PAO and compliance assessor. FedRAMP, SOC, ISO, PCI."
+    enabled: true
+
+  - name: Kratos Defense
+    careers_url: https://www.kratosdefense.com/careers
+    scan_method: websearch
+    scan_query: 'site:kratosdefense.com "FedRAMP" OR "Compliance" OR "Security" OR "Assessor"'
+    notes: "Defense tech with 3PAO division. FedRAMP assessment services."
+    enabled: true
+
+  # ============================================================
+  # GRC Platforms
+  # ============================================================
+
+  - name: ServiceNow
+    careers_url: https://careers.servicenow.com
+    scan_method: websearch
+    scan_query: 'site:careers.servicenow.com "GRC" OR "Compliance" OR "Risk" OR "Security" OR "FedRAMP"'
+    notes: "GRC platform leader. IRM, VRM, compliance modules."
+    enabled: true
+
+  - name: Telos Corporation
+    careers_url: https://www.telos.com/careers
+    scan_method: websearch
+    scan_query: 'site:telos.com "FedRAMP" OR "Compliance" OR "Xacta" OR "RMF" OR "GRC"'
+    notes: "Xacta IA Manager for RMF/FedRAMP. Federal compliance automation."
+    enabled: true
+
+  # ============================================================
+  # Federal Consulting
+  # ============================================================
+
+  - name: Deloitte Federal
+    careers_url: https://apply.deloitte.com
+    scan_method: websearch
+    scan_query: 'site:apply.deloitte.com "FedRAMP" OR "RMF" OR "GRC" OR "ISSM" OR "Compliance" "federal" OR "government"'
+    notes: "Big 4 federal advisory. GRC, RMF, FedRAMP consulting."
+    enabled: true
+
+  - name: KPMG Federal
+    careers_url: https://kpmg.com/us/en/careers.html
+    scan_method: websearch
+    scan_query: 'site:kpmg.com "FedRAMP" OR "RMF" OR "GRC" OR "Compliance" "federal" OR "government" "cybersecurity"'
+    notes: "Big 4 federal advisory. Cyber risk, compliance, GRC."
+    enabled: true
+
+  - name: PwC Federal
+    careers_url: https://www.pwc.com/us/en/careers.html
+    scan_method: websearch
+    scan_query: 'site:pwc.com "FedRAMP" OR "RMF" OR "GRC" OR "Compliance" "federal" OR "government" "cybersecurity"'
+    notes: "Big 4 federal advisory. Cyber risk, FedRAMP, compliance."
+    enabled: true

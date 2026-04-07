@@ -1,0 +1,238 @@
+# Portal Scanner Configuration — Security Operations
+# Preset: soc
+# Focus: SOC, detection engineering, incident response, threat hunting, SIEM/SOAR
+# Clearance: Optional for government SOC roles
+
+title_filter:
+  positive:
+    # -- Security Operations --
+    - "SOC"
+    - "Security Operations"
+    - "Detection Engineer"
+    - "Incident Response"
+    - "Threat Hunter"
+    - "SIEM"
+    - "SOAR"
+    - "Security Analyst"
+    - "Forensics"
+    - "Digital Forensics"
+    - "Malware Analyst"
+    - "Threat Detection"
+    - "Security Monitoring"
+    - "EDR"
+    - "XDR"
+    - "MDR"
+  negative:
+    - "Junior"
+    - "Intern"
+    - "Entry Level"
+    - ".NET"
+    - "PHP"
+    - "Ruby"
+    - "Blockchain"
+    - "Web3"
+    - "Crypto"
+    - "Marketing"
+    - "Sales"
+    - "SAP"
+    - "Mainframe"
+    - "COBOL"
+  seniority_boost:
+    - "Senior"
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Head"
+    - "Director"
+    - "Manager"
+
+search_queries:
+
+  # -- Greenhouse --
+  - name: Greenhouse — SOC & Detection
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "SOC" OR "Detection Engineer" OR "Security Operations" OR "Threat Detection"'
+    enabled: true
+
+  - name: Greenhouse — Incident Response & Forensics
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Incident Response" OR "Forensics" OR "Malware Analyst" OR "Threat Hunter"'
+    enabled: true
+
+  # -- Ashby --
+  - name: Ashby — SOC & Detection
+    query: 'site:jobs.ashbyhq.com "SOC" OR "Detection Engineer" OR "Security Analyst" OR "Threat Hunter" OR "Security Operations"'
+    enabled: true
+
+  # -- Lever --
+  - name: Lever — Incident Response & SOC
+    query: 'site:jobs.lever.co "Incident Response" OR "SOC" OR "Security Operations" OR "Detection" OR "Threat Hunter"'
+    enabled: true
+
+  # -- ClearanceJobs --
+  - name: ClearanceJobs — SOC Analyst
+    query: 'site:clearancejobs.com "SOC" OR "Security Operations" OR "Security Analyst" "TS/SCI"'
+    enabled: true
+
+  - name: ClearanceJobs — Incident Response
+    query: 'site:clearancejobs.com "Incident Response" OR "Digital Forensics" OR "Threat Hunter" "TS/SCI"'
+    enabled: true
+
+  # -- General --
+  - name: General — Threat Hunting
+    query: '"Threat Hunter" OR "Threat Hunting" "engineer" OR "analyst" OR "lead" OR "senior" remote'
+    enabled: true
+
+  - name: General — Detection Engineering
+    query: '"Detection Engineer" OR "Detection Engineering" remote'
+    enabled: true
+
+  - name: General — SIEM Engineer
+    query: '"SIEM" OR "Splunk" OR "Sentinel" OR "Chronicle" "engineer" OR "analyst" OR "architect" remote'
+    enabled: true
+
+  - name: General — SOAR & Automation
+    query: '"SOAR" OR "Security Automation" OR "Security Orchestration" "engineer" OR "analyst" remote'
+    enabled: true
+
+  - name: General — Digital Forensics
+    query: '"Digital Forensics" OR "DFIR" OR "Forensic Analyst" OR "Forensic Engineer" remote'
+    enabled: true
+
+  - name: General — EDR/XDR/MDR
+    query: '"EDR" OR "XDR" OR "MDR" "engineer" OR "analyst" OR "architect" "security" remote'
+    enabled: true
+
+tracked_companies:
+
+  # ============================================================
+  # SIEM / SOAR Vendors
+  # ============================================================
+
+  - name: Splunk (Cisco)
+    careers_url: https://jobs.cisco.com
+    scan_method: websearch
+    scan_query: 'site:jobs.cisco.com "Splunk" OR "SIEM" OR "Detection" OR "SOC" OR "Security Operations"'
+    notes: "SIEM leader (acquired by Cisco). Splunk Enterprise Security, SOAR."
+    enabled: true
+
+  - name: Elastic
+    careers_url: https://www.elastic.co/careers
+    scan_method: websearch
+    scan_query: 'site:elastic.co/careers "Security" OR "SIEM" OR "Detection" OR "SOC" OR "Threat"'
+    notes: "Elastic Security (SIEM/XDR). Open source detection rules."
+    enabled: true
+
+  - name: Microsoft Sentinel
+    careers_url: https://careers.microsoft.com
+    scan_method: websearch
+    scan_query: 'site:careers.microsoft.com "Sentinel" OR "SIEM" OR "Detection" OR "SOC" OR "Security Operations"'
+    notes: "Cloud-native SIEM. Sentinel, Defender XDR, Copilot for Security."
+    enabled: true
+
+  - name: Palo Alto Networks (Cortex)
+    careers_url: https://jobs.paloaltonetworks.com
+    scan_method: websearch
+    scan_query: 'site:jobs.paloaltonetworks.com "Cortex" OR "XSIAM" OR "SOAR" OR "SOC" OR "Detection"'
+    notes: "Cortex XSIAM, XSOAR. SOC automation and detection."
+    enabled: true
+
+  - name: Google Chronicle
+    careers_url: https://www.google.com/about/careers
+    scan_method: websearch
+    scan_query: 'site:google.com/about/careers "Chronicle" OR "Security Operations" OR "SIEM" OR "Detection Engineer"'
+    notes: "Google Chronicle SIEM. Security operations and detection."
+    enabled: true
+
+  # ============================================================
+  # MDR Providers
+  # ============================================================
+
+  - name: Arctic Wolf
+    careers_url: https://job-boards.greenhouse.io/arcticwolf
+    api: https://boards-api.greenhouse.io/v1/boards/arcticwolf/jobs
+    notes: "MDR leader. Security operations, SOC analysts, threat hunting."
+    enabled: true
+
+  - name: Expel
+    careers_url: https://job-boards.greenhouse.io/expel
+    api: https://boards-api.greenhouse.io/v1/boards/expel/jobs
+    notes: "MDR provider. SOC analysts, detection engineering, threat hunting."
+    enabled: true
+
+  - name: Red Canary
+    careers_url: https://job-boards.greenhouse.io/redcanary
+    api: https://boards-api.greenhouse.io/v1/boards/redcanary/jobs
+    notes: "MDR provider. Detection engineering, threat research."
+    enabled: true
+
+  - name: Huntress
+    careers_url: https://job-boards.greenhouse.io/huntress
+    api: https://boards-api.greenhouse.io/v1/boards/huntress/jobs
+    notes: "MDR for SMBs. SOC analysts, threat hunting, detection."
+    enabled: true
+
+  # ============================================================
+  # EDR / XDR
+  # ============================================================
+
+  - name: CrowdStrike
+    careers_url: https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers
+    scan_method: websearch
+    scan_query: 'site:crowdstrike.wd5.myworkdayjobs.com "SOC" OR "Detection" OR "Incident Response" OR "Threat" OR "Forensics"'
+    notes: "Falcon EDR/XDR leader. Overwatch threat hunting, IR services."
+    enabled: true
+
+  - name: SentinelOne
+    careers_url: https://job-boards.greenhouse.io/sentinelone
+    api: https://boards-api.greenhouse.io/v1/boards/sentinelone/jobs
+    notes: "Singularity XDR. EDR, threat hunting, detection engineering."
+    enabled: true
+
+  - name: Carbon Black (Broadcom)
+    careers_url: https://careers.broadcom.com
+    scan_method: websearch
+    scan_query: 'site:careers.broadcom.com "Carbon Black" OR "EDR" OR "Detection" OR "SOC" OR "Security Operations"'
+    notes: "Carbon Black EDR (acquired by Broadcom via VMware)."
+    enabled: true
+
+  # ============================================================
+  # IR Firms
+  # ============================================================
+
+  - name: Mandiant (Google Cloud)
+    careers_url: https://www.google.com/about/careers
+    scan_method: websearch
+    scan_query: 'site:google.com/about/careers "Mandiant" OR "Incident Response" OR "Forensics" OR "Threat Intelligence"'
+    notes: "Google-acquired IR leader. DFIR, threat intel, malware analysis."
+    enabled: true
+
+  - name: Kroll
+    careers_url: https://www.kroll.com/en/careers
+    scan_method: websearch
+    scan_query: 'site:kroll.com "Incident Response" OR "Forensics" OR "SOC" OR "Threat" OR "Malware"'
+    notes: "Cyber risk and IR firm. DFIR, threat hunting, managed SOC."
+    enabled: true
+
+  - name: Stroz Friedberg (Aon)
+    careers_url: https://jobs.aon.com
+    scan_method: websearch
+    scan_query: 'site:jobs.aon.com "Stroz Friedberg" OR "Incident Response" OR "Digital Forensics" OR "Cyber"'
+    notes: "Aon cyber IR division. Digital forensics, incident response."
+    enabled: true
+
+  # ============================================================
+  # MSSP
+  # ============================================================
+
+  - name: Secureworks
+    careers_url: https://www.secureworks.com/about/careers
+    scan_method: websearch
+    scan_query: 'site:secureworks.com "SOC" OR "Detection" OR "Threat" OR "Security Operations" OR "Analyst"'
+    notes: "Taegis XDR. Managed SOC, threat hunting, detection."
+    enabled: true
+
+  - name: AT&T Cybersecurity
+    careers_url: https://www.att.jobs
+    scan_method: websearch
+    scan_query: 'site:att.jobs "Cybersecurity" OR "SOC" OR "Security Operations" OR "SIEM" OR "Threat"'
+    notes: "AT&T managed security services. SOC, SIEM, threat detection."
+    enabled: true
