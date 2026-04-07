@@ -270,8 +270,75 @@ Add/remove: just tell me which companies to change.
 
 ## `archetypes` — View/Edit Security Archetypes
 
-Read `modes/_profile.md` and show the archetype table. Allow the user to:
-- Add new archetypes
-- Modify detection signals
-- Change priority/fit levels
-- Update proof point mappings
+Read `modes/_profile.md` and show the current archetype table.
+
+Then offer:
+
+```
+Current Archetypes:
+  1. Cleared GRC / Compliance Engineer  [primary]
+  2. Cloud Security Engineer (AWS)      [primary]
+  3. AI Security / AI Governance        [primary]
+  4. DevSecOps / Compliance Automation  [secondary]
+  5. Security Architect                 [secondary]
+  6. FedRAMP Consultant / Assessor      [adjacent]
+
+Options:
+  • "swap to [preset]" — Load a preset archetype pack (see below)
+  • "add [role]" — Add a custom archetype
+  • "remove [number]" — Remove an archetype
+  • "edit [number]" — Modify an existing archetype
+  • "reorder" — Change priority/fit levels
+  • "reset" — Restore default security archetypes
+```
+
+### Archetype Presets
+
+Users can load a preset pack that replaces or merges with their archetypes. Each preset includes the archetype table, detection signals, adaptive framing, and matching portals/search queries.
+
+Read the preset from `templates/presets/{preset}.md` and apply it to `modes/_profile.md`.
+
+| Preset | Archetypes | Best For |
+|--------|------------|----------|
+| `grc` | Cleared GRC, ISSM/ISSO, RMF Analyst, FedRAMP Consultant, Compliance Automation, Audit/Assessment | Federal compliance professionals |
+| `offensive` | Penetration Tester, Red Team Operator, Exploit Developer, AppSec Engineer, Bug Bounty Hunter, Threat Researcher | Offensive security professionals |
+| `cloud` | Cloud Security Engineer, Cloud Architect (Security), DevSecOps, CSPM Engineer, Container Security, Identity Engineer | Cloud-native security professionals |
+| `ai-security` | AI Security Engineer, AI Governance Lead, ML Security Researcher, AI Red Teamer, Responsible AI PM, LLM Security Engineer | AI/ML security professionals |
+| `soc` | SOC Analyst, Detection Engineer, Incident Responder, Threat Hunter, SIEM Engineer, Forensics Analyst | Security operations professionals |
+| `leadership` | CISO, Security Director, VP Security, Security Program Manager, GRC Director, Security Operations Manager | Security leadership |
+| `default` | The original 6 archetypes (GRC, Cloud, AI, DevSecOps, Architect, FedRAMP) | General security/compliance |
+
+When loading a preset:
+1. Read the preset file from `templates/presets/{name}.md`
+2. Show the user what will change
+3. Ask: "Replace your current archetypes, or merge with them?"
+4. Update `modes/_profile.md` — archetype table, detection signals, adaptive framing
+5. Update `portals.yml` — title_filter.positive keywords and search_queries to match
+6. Update `config/profile.yml` — target_roles and archetypes sections
+
+### Custom Archetypes
+
+When the user says "add [role]", build a new archetype interactively:
+
+1. **Name**: The archetype label (e.g., "Penetration Tester")
+2. **Thematic axes**: Key skills/domains (e.g., "OWASP Top 10, web app testing, network pentest, Burp Suite")
+3. **What they buy**: What employers are looking for (e.g., "Someone who finds vulnerabilities before attackers do")
+4. **Detection signals**: Keywords that identify this role in JDs
+5. **Fit level**: primary, secondary, or adjacent
+6. **Proof points**: Which parts of the user's CV map to this archetype
+
+Then write to `modes/_profile.md`:
+- Add row to archetype table
+- Add row to detection signals table
+- Add row to adaptive framing table
+
+### Editing Archetypes
+
+When the user says "edit [number]" or describes a change:
+- Read `modes/_profile.md`
+- Find the archetype by number or name
+- Show current values
+- Ask what to change
+- Update all three tables (archetype, detection, framing) consistently
+
+All changes go to `modes/_profile.md` (User Layer) — never `modes/_shared.md`.

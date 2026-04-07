@@ -82,9 +82,39 @@ cp ../security-career-ops/scripts/sync-to-obsidian.mjs sync-to-obsidian.mjs
 
 Then edit `config/profile.yml` with your personal details.
 
-## Security Archetypes
+## Archetype Presets
 
-The skill configures 6 role archetypes optimized for cybersecurity professionals:
+Not everyone targets the same security roles. The skill includes **7 preset packs** you can swap between:
+
+```
+/security-career-ops archetypes
+> swap to offensive
+```
+
+| Preset | Focus | Example Roles |
+|--------|-------|---------------|
+| `default` | General security/compliance | ISSM, Cloud Security, AI Security, DevSecOps, Architect, FedRAMP |
+| `grc` | Federal compliance | ISSM, ISSO, RMF Analyst, FedRAMP Engineer, OSCAL/eMASS, 3PAO Assessor |
+| `offensive` | Red team / pentesting | Pentester, Red Team Operator, AppSec, Exploit Dev, Bug Bounty, Threat Intel |
+| `cloud` | Cloud-native security | Cloud Security Engineer, DevSecOps, CSPM, Container/K8s Security, IAM |
+| `ai-security` | AI/ML security | AI Security Engineer, AI Governance, ML Security, AI Red Team, LLM Security |
+| `soc` | Security operations | SOC Analyst, Detection Engineer, IR Lead, Threat Hunter, SIEM, Forensics |
+| `leadership` | Security leadership | CISO, Security Director, GRC Director, Program Manager, SOC Manager |
+
+You can also mix presets, add custom archetypes, or edit individual roles:
+
+```
+/security-career-ops archetypes
+> add "Insider Threat Analyst"
+> edit 3
+> remove 6
+```
+
+All changes live in `modes/_profile.md` (User Layer) and survive career-ops system updates.
+
+## Default Security Archetypes
+
+The `default` preset configures 6 role archetypes optimized for cybersecurity professionals:
 
 | Archetype | Key Signals | Example Roles |
 |-----------|-------------|---------------|
@@ -139,11 +169,19 @@ If you have the Firecrawl CLI configured, the skill sets it as the preferred web
 ```
 security-career-ops/
   .claude/skills/security-career-ops/
-    SKILL.md                          # Skill definition (router + commands)
+    SKILL.md                          # Skill definition (router + 7 commands)
   templates/
     modes/_profile.md                 # Security archetypes + Firecrawl overrides
     portals.yml                       # Defense/security employer config
     profile.yml                       # Profile template with security roles
+    presets/                          # Archetype preset packs
+      default.md                     #   General security/compliance
+      grc.md                         #   Federal compliance (ISSM, ISSO, RMF)
+      offensive.md                   #   Red team / pentesting
+      cloud.md                       #   Cloud-native security
+      ai-security.md                 #   AI/ML security
+      soc.md                         #   Security operations
+      leadership.md                  #   CISO / security management
     obsidian/
       VAULT-INDEX.md                  # Vault index
       Templates/
